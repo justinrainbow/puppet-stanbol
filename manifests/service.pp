@@ -2,7 +2,8 @@ class stanbol::service {
 	service { 'stanbol':
 		ensure     => running,
 		enable     => true,
-		provider   => "upstart",
+		hasrestart => true,
+		hasstatus  => true,
 		require    => [ Class['stanbol::config'], Class['stanbol::install'] ],
 	}
 }
